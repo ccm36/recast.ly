@@ -4,8 +4,19 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      currentVideo: window.exampleVideoData[0]
+      // clicked: false
+    };
 
-
+  }
+  
+  onVideoEntryClick(video) {
+    console.log('hello');
+    this.setState({
+      currentVideo: video
+      // clicked: !this.state.clicked
+    });
   }
 
   render() {
@@ -13,17 +24,22 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> view goes here</h5></div>
+            <div>
+              <Search />
+            </div>
           </div>
         </nav>
         <div className="row">
           <div className="col-md-7">
             <div>
-              <VideoPlayer video={window.exampleVideoData[0]} />
+              <VideoPlayer video={this.state.currentVideo} />
             </div>
           </div>
           <div className="col-md-5">
-            <VideoList videos={window.exampleVideoData} />
+            <VideoList 
+              videos={window.exampleVideoData} 
+              onVideoEntryClick={this.onVideoEntryClick.bind(this)} 
+            />
           </div>
         </div>
       </div>
