@@ -3,6 +3,9 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
+
+
+
   }
 
   render() {
@@ -16,12 +19,11 @@ class App extends React.Component {
         <div className="row">
           <div className="col-md-7">
             <div>
-              <VideoPlayer />
-              <h5><em>videoPlayer</em> view goes here</h5>
+              <VideoPlayer video={window.exampleVideoData[0]} />
             </div>
           </div>
           <div className="col-md-5">
-            <div><h5><em>videoList</em> view goes here</h5></div>
+            <VideoList videos={window.exampleVideoData} />
           </div>
         </div>
       </div>
